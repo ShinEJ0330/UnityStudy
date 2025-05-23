@@ -138,7 +138,7 @@ Transform:
   m_GameObject: {fileID: 2309976112018959302}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.8, z: 0.4}
+  m_LocalPosition: {x: 0, y: 0.8, z: -0.412}
   m_LocalScale: {x: 0.6, y: 0.7, z: 0.2}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -466,7 +466,7 @@ Transform:
   m_GameObject: {fileID: 6279034841122918265}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.992, z: -0.32}
+  m_LocalPosition: {x: 0, y: 0.992, z: 0.286}
   m_LocalScale: {x: 0.75666225, y: 0.2, z: 0.3}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -560,7 +560,7 @@ GameObject:
   - component: {fileID: 2472331017735011934}
   m_Layer: 0
   m_Name: Amongus
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
