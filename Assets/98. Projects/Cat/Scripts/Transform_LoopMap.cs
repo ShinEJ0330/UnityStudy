@@ -4,7 +4,9 @@ using UnityEngine;
 public class Transform_LoopMap : MonoBehaviour
 {
     public float moveSpeed = 3f;
-    public Vector3 returnPos = new Vector3(30f, 1.5f, 0f);
+    public float returnPosX = 10f;
+    public float randomPosY;
+    public int a, b;
     
     void Update()
     {
@@ -12,9 +14,10 @@ public class Transform_LoopMap : MonoBehaviour
         transform.position += Vector3.left * moveSpeed * Time.fixedDeltaTime;
 
         // 배경이 -30이 되는 순간 30으로 위치 초기화
-        if (transform.position.x <= -30f)
+        if (transform.position.x <= -returnPosX)
         {
-            transform.position = returnPos;
+            randomPosY = Random.Range(a, b);
+            transform.position = new Vector3(returnPosX, randomPosY, 3);
         } 
     }
 }
