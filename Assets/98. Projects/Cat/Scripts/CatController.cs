@@ -29,7 +29,7 @@ public class CatController : MonoBehaviour
     void Jump()
     {
         // 점프
-        if (Input.GetKeyDown(KeyCode.Space) && jumpCount < 2)
+        if (Input.GetKeyDown(KeyCode.Space) && jumpCount < 3)
         {
             isStarted = true;
             StartCanvas.SetActive(false);
