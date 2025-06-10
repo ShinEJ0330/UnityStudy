@@ -1,13 +1,15 @@
 using System;
 using UnityEngine;
 using Cat;
+using UnityEditor;
 
 public class CatController : MonoBehaviour
 {
     public SoundManager soundManager;
     private Rigidbody2D catRb;
     private Animator CatAnim;
-    public float jumpPower = 10f;
+    public float jumpPower = 30f;
+    public float limitPower = 25f;
     public bool isGround = false;
     public int jumpCount = 0;
     public GameObject StartCanvas;
@@ -29,7 +31,7 @@ public class CatController : MonoBehaviour
     void Jump()
     {
         // 점프
-        if (Input.GetKeyDown(KeyCode.Space) && jumpCount < 3)
+        if (Input.GetKeyDown(KeyCode.Space) && jumpCount < 5)
         {
             isStarted = true;
             StartCanvas.SetActive(false);
@@ -41,7 +43,22 @@ public class CatController : MonoBehaviour
 
             catRb.AddForceY(jumpPower, ForceMode2D.Impulse);
 
-            //if(catRb.linearVelocityY > l)
+            if (catRb.linearVelocityY > limitPower)
+                catRb.linearVelocityY = limitPower;
+        }
+        var catRotation = transform.eulerAngles;
+        catRotation.z = catRb.linearVelocityY * 2.5f;
+        transform.eulerAngles = catRotation;
+    }
+
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        if (other.gameObject.CompareTag("Fruit"))
+        {
+            other.gameObject.SetActive(false);
+            other.transform.parent.GetComponent<ItemEvent>().particle.SetActive(true);
+
+            GameManager.score++;
         }
     }
 

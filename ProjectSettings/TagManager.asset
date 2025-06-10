@@ -10,6 +10,7 @@ TagManager:
   - Score30
   - Score50
   - GameOver
+  - Fruit
   layers:
   - Default
   - TransparentFX
