@@ -1,5 +1,6 @@
 using TreeEditor;
 using UnityEngine;
+using UnityEngine.UIElements;
 
 public class Transform_LoopMap : MonoBehaviour
 {
@@ -7,7 +8,11 @@ public class Transform_LoopMap : MonoBehaviour
     public float returnPosX = 10f;
     public float randomPosY;
     public int a, b;
-
+    void Start()
+    {
+        randomPosY = Random.Range(a, b);
+        transform.position = new Vector3(transform.position.x, randomPosY, 0);
+    }
     void Update()
     {
         if (CatController.isStarted)

@@ -36,11 +36,12 @@ public class CatController : MonoBehaviour
 
             CatAnim.SetTrigger("Jump");
             CatAnim.SetBool("isGround", false);
+            jumpCount++;
+            soundManager.OnJumpSound();
 
             catRb.AddForceY(jumpPower, ForceMode2D.Impulse);
-            jumpCount++;
 
-            soundManager.OnJumpSound();
+            //if(catRb.linearVelocityY > l)
         }
     }
 
