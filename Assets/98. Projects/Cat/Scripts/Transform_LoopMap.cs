@@ -1,6 +1,4 @@
-using TreeEditor;
 using UnityEngine;
-using UnityEngine.UIElements;
 
 public class Transform_LoopMap : MonoBehaviour
 {
@@ -36,7 +34,7 @@ public class Transform_LoopMap : MonoBehaviour
     private void SetRandomSetting(float posX)
     {
         randomPosY = Random.Range(3, 5);
-        transform.position = new Vector3(posX, randomPosY, 3);
+        transform.position = new Vector3(posX, randomPosY, 0);
         
         bird1.SetActive(false);
         bird2.SetActive(false);

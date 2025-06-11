@@ -1,7 +1,6 @@
 using System;
 using UnityEngine;
 using Cat;
-using UnityEditor;
 
 public class CatController : MonoBehaviour
 {
@@ -19,7 +18,8 @@ public class CatController : MonoBehaviour
     {
         catRb = GetComponent<Rigidbody2D>();
         CatAnim = GetComponent<Animator>();
-
+        
+        GameManager.isPlay = true;
         StartCanvas.SetActive(true);
     }
 

@@ -1,4 +1,3 @@
-using UnityEditor.Analytics;
 using UnityEngine;
 
 public class ItemEvent : MonoBehaviour

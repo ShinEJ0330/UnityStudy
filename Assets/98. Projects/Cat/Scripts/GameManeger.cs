@@ -10,7 +10,7 @@ namespace Cat
 
         private float timer;
         public static int score;
-        public bool isPlay = false;
+        public static bool isPlay = false;
 
         void Update()
         {
