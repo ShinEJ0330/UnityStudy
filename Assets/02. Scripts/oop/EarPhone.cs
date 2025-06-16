@@ -2,15 +2,12 @@ using UnityEngine;
 
 public class EarPhone : MonoBehaviour
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
-    {
-        
-    }
+    public string name;
+    public float price;
+    public int releaseYear;
 
-    // Update is called once per frame
-    void Update()
+    public void PlayerMusic()
     {
-        
+        Debug.Log("음악 재생");
     }
 }

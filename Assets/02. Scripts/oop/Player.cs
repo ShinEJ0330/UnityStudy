@@ -1,14 +1,14 @@
 using UnityEngine;
 using UnityEngine.Timeline;
 
-public class Player : Character
+public class Player : MonoBehaviour
 {
-    public override void Attack()
+    public void Attack()
     {
         Debug.Log("Player 공격");
     }
 
-    public override void Move()
+    public void Move()
     {
         Debug.Log("Player 이동");
     }

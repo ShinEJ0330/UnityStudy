@@ -1,17 +1,32 @@
+using System;
 using UnityEngine;
 
 public class Character : MonoBehaviour
 {
-    public float hp;
-    public float moveSpeed;
+    public IDropItem currentItem;
 
-    public virtual void Attack()
+    void Update()
     {
-        Debug.Log("공격");
+        if (Input.GetMouseButtonDown(0))
+        {
+            currentItem.Use();
+        }
+
+        if (Input.GetKeyDown(KeyCode.B))
+        {
+            currentItem.Drop();
+        }
     }
-
-    public virtual void Move()
+    
+    private void OnTriggerEnter(Collider other)
     {
-        Debug.Log("이동");
+        if (other.GetComponent<IDropItem>() != null)
+        {
+            IDropItem item = other.GetComponent<IDropItem>();
+            
+            item.Grab(); // 아이템 획득
+
+            currentItem = item; // 현재 아이템 장착
+        }
     }
 }
