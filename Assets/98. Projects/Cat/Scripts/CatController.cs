@@ -1,4 +1,5 @@
 using System;
+using System.Collections;
 using UnityEngine;
 using Cat;
 
@@ -18,9 +19,16 @@ public class CatController : MonoBehaviour
     {
         catRb = GetComponent<Rigidbody2D>();
         CatAnim = GetComponent<Animator>();
-        
-        GameManager.isPlay = true;
+
         StartCanvas.SetActive(true);
+    }
+
+    void OnEnable() // 켜질때마다 1번씩 실행
+    {
+        transform.localPosition = new Vector3(-7f, -2f, 0f);
+
+        GetComponent<CircleCollider2D>().enabled = true;
+        soundManager.audioSource.Play();
     }
 
     void Update()
@@ -33,8 +41,13 @@ public class CatController : MonoBehaviour
         // 점프
         if (Input.GetKeyDown(KeyCode.Space) && jumpCount < 5)
         {
-            isStarted = true;
-            StartCanvas.SetActive(false);
+            if (!isStarted)
+            {
+                isStarted = true;
+                StartCanvas.SetActive(false);
+                GameManager.isPlay = true;
+                soundManager.SetBGMSound();
+            }
 
             CatAnim.SetTrigger("Jump");
             CatAnim.SetBool("isGround", false);
@@ -75,7 +88,7 @@ public class CatController : MonoBehaviour
 
     private void OnCollisionExit2D(Collision2D other)
     {
-        if(other.gameObject.CompareTag("Ground"))
+        if (other.gameObject.CompareTag("Ground"))
         {
             isGround = false;
         }

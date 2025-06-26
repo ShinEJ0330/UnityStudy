@@ -10,11 +10,21 @@ public class Transform_LoopMap : MonoBehaviour
     public float moveSpeed = 3f;
     public float returnPosX = 10f;
     public float randomPosY;
+    private Vector3 initPos;
     //public int a, b;
     void Start()
     {
         SetRandomSetting(transform.position.x);
         //randomPosY = Random.Range(a, b);
+    }
+    void Awake()
+    {
+        initPos = transform.localPosition;
+    }
+    
+    void OnEnable()
+    {
+        SetRandomSetting(initPos.x);
     }
     void Update()
     {
@@ -33,7 +43,7 @@ public class Transform_LoopMap : MonoBehaviour
     }
     private void SetRandomSetting(float posX)
     {
-        randomPosY = Random.Range(3, 5);
+        randomPosY = Random.Range(1, 5);
         transform.position = new Vector3(posX, randomPosY, 0);
         
         bird1.SetActive(false);

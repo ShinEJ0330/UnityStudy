@@ -10,7 +10,7 @@ namespace Cat
 
         void Start()
         {
-            SetBGMSound();
+            //SetBGMSound();
         }
         
         public void SetBGMSound()

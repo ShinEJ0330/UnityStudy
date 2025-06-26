@@ -14,6 +14,8 @@ namespace Cat
 
         void Update()
         {
+            Debug.Log(isPlay);
+
             if (!isPlay) return;
 
             timer += Time.deltaTime;
@@ -21,6 +23,16 @@ namespace Cat
             playTimeUI.text = $"Play Time : {timer:F0}";
             // playTimeUI.text = string.Format("플레이 시간 : {0:F1}초", timer);
 
+            scoreUI.text = $"X {score}";
+        }
+
+        public void ScoreReset()
+        {
+            timer = 0f;
+            score = 0;
+
+            // UI 텍스트도 초기화
+            playTimeUI.text = $"Play Time : {timer:F0}";
             scoreUI.text = $"X {score}";
         }
     }

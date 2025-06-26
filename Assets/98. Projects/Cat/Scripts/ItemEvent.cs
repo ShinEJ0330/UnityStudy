@@ -13,6 +13,7 @@ public class ItemEvent : MonoBehaviour
     public float moveSpeed = 3f;
     public float returnPosX = 10f;
     public float randomPosY;
+    private Vector3 initPos;
     void Start()
     {
         SetRandomSetting(transform.position.x);
@@ -22,6 +23,7 @@ public class ItemEvent : MonoBehaviour
         if (CatController.isStarted)
         {
 
+            // 
             // 배경 왼쪽으로 이동하는 기능
             transform.position += Vector3.left * moveSpeed * Time.fixedDeltaTime;
 
@@ -29,6 +31,16 @@ public class ItemEvent : MonoBehaviour
             if (transform.position.x <= -returnPosX)
                 SetRandomSetting(returnPosX);
         }
+    }
+
+    void Awake()
+    {
+        initPos = transform.localPosition;
+    }
+    
+    void OnEnable()
+    {
+        SetRandomSetting(initPos.x);
     }
 
     private void SetRandomSetting(float posX)
