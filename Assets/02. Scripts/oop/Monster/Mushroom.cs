@@ -1,10 +1,10 @@
-using UnityEngine;
+﻿using UnityEngine;
 
 public class Mushroom : Monster
 {
     public override void Init()
     {
-        hp = 7f;
+        hp = 3f;
         moveSpeed = 2f;
     }
 }
